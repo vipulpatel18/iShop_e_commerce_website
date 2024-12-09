@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "concurrently": "^9.0.1",
+    "sweetalert2": "^11.14.5"
+  },
+  "scripts": {
+    "start": "concurrently \"cd frontend && npm run dev \" \"cd backend && node --watch index\""
+  }
+}
