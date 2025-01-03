@@ -1,129 +1,114 @@
-import React, { useState } from "react";
+import React from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { FaStar } from "react-icons/fa";
 
-const featuredProducts = [
-  {
-    id: 1,
-    name: "Beats Solo 2 On Ear Headphones - Black",
-    price: "$499",
-    originalPrice: "$599",
-    rating: 4,
-    image: "img/2_corousel@2x.png", // Replace with actual path
-  },
-  {
-    id: 4,
-    name: "Beats Solo 2 On Ear Headphones - Black",
-    price: "$499",
-    originalPrice: "$599",
-    rating: 4,
-    image: "img/2_corousel@2x.png", // Replace with actual path
-  },
-  {
-    id: 5,
-    name: "Beats Solo 2 On Ear Headphones - Black",
-    price: "$499",
-    originalPrice: "$599",
-    rating: 4,
-    image: "img/2_corousel@2x.png", // Replace with actual path
-  },
-  {
-    id: 6,
-    name: "Beats Solo 2 On Ear Headphones - Black",
-    price: "$499",
-    originalPrice: "$599",
-    rating: 4,
-    image: "img/2_corousel@2x.png", // Replace with actual path
-  },
-  {
-    id: 2,
-    name: "H-Squared tvTray",
-    price: "$499",
-    originalPrice: "$599",
-    rating: 4,
-    image: "img/2_corousel@2x.png", // Replace with actual path
-  },
-  {
-    id: 3,
-    name: "Netatmo Rain Gauge",
-    price: "$499",
-    originalPrice: "$599",
-    rating: 4,
-    image: "img/2_corousel@2x.png", // Replace with actual path
-  },
-  // Add more products as needed
-];
-
-const FeaturedProductsSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? featuredProducts.length - 3 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === featuredProducts.length - 1 ? 0 : prevIndex + 1
-    );
+export default function FeaturedProductsSlider() {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1200 },
+      items: 3,
+      partialVisibilityGutter: 100,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      partialVisibilityGutter: 30,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      partialVisibilityGutter: 30,
+    },
   };
 
   return (
-    <div className="max-w-5xl mx-auto my-20">
-      <h2 className="text-2xl font-semibold text-center mb-6">
-        FEATURED PRODUCTS
-      </h2>
+    <>
+      <div className="max-w-[1100px] mx-auto pb-[80px]">
+        <h1 className="text-3xl font-semibold text-[#22262A] text-center pb-5">
+          FEATURED PRODUCTS
+        </h1>
 
-      <div className="relative flex items-center">
-        {/* Left Arrow */}
-        <button
-          onClick={handlePrev}
-          className="absolute left-0 p-3 bg-white rounded-full shadow-md hover:bg-gray-200"
+        <Carousel
+          responsive={responsive}
+          swipeable
+          draggable
+          showDots
+          infinite
+          autoPlay
+          autoPlaySpeed={3000}
+          keyBoardControl
+          transitionDuration={300}
+          containerClass="carousel-container"
+          itemClass="carousel-item-padding-40-px"
         >
-          <span className="text-2xl">❮</span>
-        </button>
-
-        {/* Product Cards */}
-        <div className="flex justify-center px-16 space-x-16 overflow-hidden cursor-pointer">
-          {featuredProducts
-            .slice(currentIndex, currentIndex + 3)
-            .map((product) => (
-              <div
-                key={product.id}
-                className="bg-white flex gap-3 p-4 rounded-lg shadow-lg text-center transition transform hover:scale-105"
-              >
-                <img
-                  src={product.image}
-                  // alt={product.name}
-                  className="w-1/2 object-contain self-center"
-                />
-                <div>
-                  <h3 className="text-sm font-semibold">{product.name}</h3>
-                  <div className="flex justify-center space-x-1 text-yellow-400 mb-2">
-                    {"★".repeat(product.rating)}
-                  </div>
-                  <div className="flex gap-3 items-center">
-                    <div className="text-red-500 text-lg font-bold">
-                      {product.price}
-                    </div>
-                    <div className="text-gray-500 line-through">
-                      {product.originalPrice}
-                    </div>
-                  </div>
-                </div>
+          {/* Product Card 1 */}
+          <div className="py-10 shadow-inner flex justify-evenly gap-6 px-3">
+            <div className="flex items-center shadow-md p-3">
+              <img src="img/2_corousel@2x.png" alt="Beats Solo 2" />
+            </div>
+            <div className="flex flex-col justify-center">
+              <h1 className="text-xl pb-3">
+                Beats Solo 2 On Ear Headphones - Black
+              </h1>
+              <div className="flex gap-1 text-xl pb-3">
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-[#C1C8CE]" />
               </div>
-            ))}
-        </div>
+              <div className="text-[#FF4858] text-xl ">
+                $499 <span className="text-[#C1C8CE]">$599</span>
+              </div>
+            </div>
+          </div>
 
-        {/* Right Arrow */}
-        <button
-          onClick={handleNext}
-          className="absolute right-0 p-3 bg-white rounded-full shadow-md hover:bg-gray-200"
-        >
-          <span className="text-2xl">❯</span>
-        </button>
+          {/* Product Card 2 */}
+          <div className="py-10 shadow-inner flex justify-evenly gap-6 px-3">
+            <div className="flex items-center shadow-md p-3">
+              <img src="img/2_corousel@2x.png" alt="Beats Solo 2" />
+            </div>
+            <div className="flex flex-col justify-center">
+              <h1 className="text-xl pb-3">
+                Beats Solo 2 On Ear Headphones - Black
+              </h1>
+              <div className="flex gap-1 text-xl pb-3">
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-[#C1C8CE]" />
+              </div>
+              <div className="text-[#FF4858] text-xl ">
+                $499 <span className="text-[#C1C8CE]">$599</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Product Card 3 */}
+          <div className="py-10 shadow-inner flex justify-evenly gap-6 px-3">
+            <div className="flex items-center shadow-md p-3">
+              <img src="img/2_corousel@2x.png" alt="Beats Solo 2" />
+            </div>
+            <div className="flex flex-col justify-center">
+              <h1 className="text-xl pb-3">
+                Beats Solo 2 On Ear Headphones - Black
+              </h1>
+              <div className="flex gap-1 text-xl pb-3">
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-yellow-400" />
+                <FaStar className="text-[#C1C8CE]" />
+              </div>
+              <div className="text-[#FF4858] text-xl ">
+                $499 <span className="text-[#C1C8CE]">$599</span>
+              </div>
+            </div>
+          </div>
+        </Carousel>
       </div>
-    </div>
+    </>
   );
-};
-
-export default FeaturedProductsSlider;
+}
