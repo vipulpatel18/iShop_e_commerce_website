@@ -65,9 +65,9 @@ const Checkout = () => {
       order_id: razorpayOrderId,
       handler: function (response) {
         // console.log(response);
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature);
+        // alert(response.razorpay_payment_id);
+        // alert(response.razorpay_order_id);
+        // alert(response.razorpay_signature);
       },
       prefill: {
         name: user?.full_name,
@@ -83,13 +83,13 @@ const Checkout = () => {
 
     rzp1.on("payment.failed", function (response) {
       // console.log(response);
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
+      // alert(response.error.code);
+      // alert(response.error.description);
+      // alert(response.error.source);
+      // alert(response.error.step);
+      // alert(response.error.reason);
+      // alert(response.error.metadata.order_id);
+      // alert(response.error.metadata.payment_id);
     });
 
     rzp1.open();

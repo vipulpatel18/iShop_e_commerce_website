@@ -15,7 +15,7 @@ export default function Login() {
   const { fetchUser, user, API_BASE_URL, USER_URL } = useContext(context);
 
   const [showPassword, setShowPassword] = useState(true);
-  console.log(cart);
+  // console.log(cart);
   useEffect(() => {
     fetchUser();
   }, []);
