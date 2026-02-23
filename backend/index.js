@@ -30,17 +30,20 @@ server.use("/order", OrderRouter)
 
 const MongoDb_Url = process.env.MONGODB_URL
 
-mongoose.connect(MongoDb_Url,
-    {
-        dbName: 'iShop'
-    }
-).then(
-    () => {
-        server.listen(process.env.PORT || 5000, () => {
-            console.log('Server started on port 5000');
-        });
-    }
-)
+mongoose.connect(MongoDb_Url, {
+    dbName: 'iShop'
+})
+    // mongoose.connect(process.env.MONGODB_URL, {
+    //     useNewUrlParser: true,
+    //     useUnifiedTopology: true
+    // })
+    .then(
+        () => {
+            server.listen(process.env.PORT || 5000, () => {
+                console.log('Server started on port 5000');
+            });
+        }
+    )
     .catch(
         (error) => {
             console.log('Internal server error:', error.message);

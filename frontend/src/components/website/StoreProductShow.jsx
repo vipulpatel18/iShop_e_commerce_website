@@ -4,6 +4,7 @@ import { context } from "../../../MainContext"; // Context providing product dat
 // import ProductCard from "./ProductCard"; // Import the ProductCard component.
 import { FaHeart, FaShoppingCart } from "react-icons/fa"; // Icons for actions.
 import { addToCart } from "../../Pages/redux/reducers/cartSlice"; // Redux action.
+import { IndCurrency } from "../../Help";
 
 const StoreProductShow = () => {
   const { fetchProducts, products, API_BASE_URL } = useContext(context); // Fetch products and API base URL from context.
@@ -96,7 +97,7 @@ const ProductCard = ({ product, API_BASE_URL, dispatch }) => {
                     price: product.final_price,
                     original_price: product.original_price,
                     main_image: product.main_image,
-                  })
+                  }),
                 )
               }
             >
@@ -118,10 +119,10 @@ const ProductCard = ({ product, API_BASE_URL, dispatch }) => {
         </div>
         <div className="flex justify-center items-baseline space-x-2">
           <span className="text-red-500 text-xl font-bold">
-            $ {product.final_price}
+            {IndCurrency(Number(product?.final_price))}
           </span>
           <span className="text-gray-400 line-through">
-            $ {product.original_price}
+            {IndCurrency(Number(product?.final_price))}
           </span>
         </div>
       </div>

@@ -106,7 +106,7 @@ class categoryControllers {
                         status: 0
                     };
                 }
-    
+
                 // Add product count to each category
                 const data = await Promise.all(
                     categories.map(async (cat) => {
@@ -117,7 +117,7 @@ class categoryControllers {
                         };
                     })
                 );
-    
+
                 return {
                     msg: "Categories found",
                     status: 1,
@@ -133,7 +133,7 @@ class categoryControllers {
             };
         }
     }
-    
+
     categoryStatusUpdate(id) {
         return new Promise(async (resolve, reject) => {
             try {

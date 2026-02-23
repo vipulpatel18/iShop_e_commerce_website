@@ -113,7 +113,7 @@ export default function Cart() {
                           <div className="text-end md:order-4 md:w-32">
                             <p className="text-base font-bold text-gray-900">
                               {IndCurrency(
-                                Number(prod?.final_price * d?.quantity)
+                                Number(prod?.final_price * d?.quantity),
                               )}
                             </p>
                           </div>
@@ -195,12 +195,12 @@ export default function Cart() {
               </Link>
               <div className="flex items-center justify-center gap-2">
                 <span className="text-sm font-normal text-gray-500">or</span>
-                <button
+                <Link
                   to={"/store"}
                   className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline"
                 >
                   Continue Shopping
-                </button>
+                </Link>
               </div>
             </div>
           </div>
