@@ -31,7 +31,7 @@ import Checkout from "./components/website/Checkout";
 import UserLogin from "./Pages/website/Login";
 import UserRegister from "./Pages/website/Register";
 import ThankYouPage from "./components/website/ThankYouPage";
-import NotFound from "./Pages/website/Notfound";
+import NotFound from "./Pages/website/NotFound";
 
 export default function App() {
   const router = createBrowserRouter([
