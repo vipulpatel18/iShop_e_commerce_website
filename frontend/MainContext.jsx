@@ -16,7 +16,8 @@ export default function MainContext(props) {
   const [products, setProduct] = useState(null);
   const [user, setUser] = useState(null);
 
-  const API_BASE_URL = "http://localhost:5000";
+  // const API_BASE_URL = "http://localhost:5000";
+  const API_BASE_URL = "https://ishop-backend-vtah.onrender.com";
   const CATEGORY_URL = "/category";
   const COLOR_URL = "/color";
   const PRODUCT_URL = "/product";
@@ -60,7 +61,7 @@ export default function MainContext(props) {
     id = null,
     limit = null,
     category_slug = null,
-    product_color = null
+    product_color = null,
   ) => {
     let API = API_BASE_URL + PRODUCT_URL;
     if (id != null) {

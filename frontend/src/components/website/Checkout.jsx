@@ -19,7 +19,7 @@ const Checkout = () => {
     }
   }, [cart]);
 
-  const { products, notify } = useContext(context);
+  const { products, notify, API_BASE_URL, ORDER_URL } = useContext(context);
 
   const originalPrice = cart?.items?.reduce((total, item) => {
     const product = products?.find((prod) => prod._id === item.product_id);
@@ -36,7 +36,8 @@ const Checkout = () => {
   const handlePlaceOrder = () => {
     const address = user.ShippingAddress[selectedAddress];
     axios
-      .post("http://localhost:5000/order/place-order", {
+      // .post("http://localhost:5000/order/place-order", {
+      .post(`${API_BASE_URL}${ORDER_URL}/place-order`, {
         user_id: user._id,
         address,
         paymentMode,
